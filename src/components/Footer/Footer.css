@@ -1,0 +1,177 @@
+/* ---------- design tokens ---------- */
+:root {
+  --ft-bg: #f5f5f5;
+  --ft-text: #000000;
+  --ft-border: 1px solid #e0e0e0;
+  --ft-max-width: 1280px;
+  --ft-column-gap: clamp(2rem, 4vw, 4rem);
+  --ft-row-gap: clamp(1.5rem, 3vw, 2.5rem);
+  --ft-heading-size: clamp(1.25rem, 1.5vw, 1.5rem);
+  --ft-text-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  --ft-legal-size: clamp(0.85rem, 1vw, 0.95rem);
+  --ft-social-icon-size: 1.2rem;
+}
+
+/* ---------- base styles ---------- */
+.ft {
+  background: var(--ft-bg);
+  color: var(--ft-text);
+  padding: clamp(3rem, 5vw, 4.5rem) 1.5rem 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+}
+
+.ft__container {
+  max-width: var(--ft-max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ---------- grid layout ---------- */
+.ft__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--ft-row-gap) var(--ft-column-gap);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.ft__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.ft__col h4 {
+  font-size: var(--ft-heading-size);
+  font-weight: 600;
+  margin: 0 0 1.25rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ft__col ul,
+.ft__col address {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--ft-text-size);
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ft__col li {
+  margin-bottom: 0.5rem;
+}
+
+.ft__col a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.ft__col a:hover {
+  opacity: 0.7;
+}
+
+/* ---------- contact info ---------- */
+.ft__col address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ---------- social icons ---------- */
+.ft__social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.ft__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--ft-text);
+  color: var(--ft-bg);
+  border-radius: 50%;
+  font-size: var(--ft-social-icon-size);
+  transition: transform 0.2s ease;
+}
+
+.ft__social a:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- divider ---------- */
+.ft__divider {
+  border: none;
+  border-top: var(--ft-border);
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--ft-max-width);
+}
+
+/* ---------- legal section ---------- */
+.ft__legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0 clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.ft__copy {
+  font-size: var(--ft-legal-size);
+  font-weight: 300;
+  margin: 0 0 0.75rem 0;
+}
+
+.ft__links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--ft-legal-size);
+}
+
+.ft__separator {
+  opacity: 0.3;
+}
+
+/* ---------- responsive adjustments ---------- */
+@media (max-width: 900px) {
+  .ft__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .ft {
+    padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  
+  .ft__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .ft__col {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .ft__social {
+    justify-content: center;
+  }
+  
+  .ft__legal {
+    padding-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --ft-heading-size: 1.6rem;
+    --ft-text-size: 1.15rem;
+  }
+}

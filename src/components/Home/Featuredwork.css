@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&display=swap');
+:root {
+  --fw-max: 1200px;
+  --fw-gap: 24px;
+  --fw-radius: 12px;
+  --fw-border: 1px solid rgba(0, 0, 0, 0.08);
+  --fw-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+  --fw-shadow-hover: 0 24px 48px -12px rgba(0, 0, 0, 0.12);
+  --fw-title: clamp(1.75rem, 3vw, 2.5rem);
+  --fw-subtitle: clamp(1rem, 1.5vw, 1.25rem);
+  --fw-title-color: #222;
+  --fw-subtitle-color: #666;
+  --fw-overlay-bg: rgba(0, 0, 0, 0.7);
+  --fw-button-bg: #4a6cf7;
+  --fw-button-hover: #3a5ce4;
+}
+
+/* Section Styling */
+.featured-work {
+  background: #fff;
+  width: 100%;
+  padding: clamp(5rem, 10vw, 8rem) 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.fw-container {
+  max-width: var(--fw-max);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Title Styles */
+.fw-title {
+  font: 600 var(--fw-title)/1.2 'Inter', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: -0.02em;
+  color: var(--fw-title-color);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.fw-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--fw-button-bg);
+  border-radius: 3px;
+}
+
+.fw-subtitle {
+  font: 400 var(--fw-subtitle)/1.6 'Inter', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: var(--fw-subtitle-color);
+  max-width: 700px;
+  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.01em;
+}
+
+/* Grid Layout - 3 columns */
+.fw-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--fw-gap);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+/* Grid Items */
+.fw-item {
+  position: relative;
+  border-radius: var(--fw-radius);
+  overflow: hidden;
+  box-shadow: var(--fw-shadow);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.fw-item:hover {
+  box-shadow: var(--fw-shadow-hover);
+  transform: translateY(-5px);
+}
+
+.fw-image-container {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.fw-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fw-item:hover .fw-image {
+  transform: scale(1.1);
+}
+
+/* Overlay Effect */
+.fw-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--fw-overlay-bg);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fw-item:hover .fw-overlay {
+  opacity: 1;
+}
+
+.fw-overlay-content {
+  padding: 1.5rem;
+  transform: translateY(20px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fw-item:hover .fw-overlay-content {
+  transform: translateY(0);
+}
+
+.fw-item-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.fw-item-category {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.fw-view-button {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fw-view-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* CTA Button */
+.fw-cta {
+  background: var(--fw-button-bg);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(74, 108, 247, 0.2);
+}
+
+.fw-cta:hover {
+  background: var(--fw-button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(74, 108, 247, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .fw-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .fw-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .fw-overlay-content {
+    padding: 1rem;
+  }
+  
+  .fw-item-title {
+    font-size: 1.2rem;
+  }
+}

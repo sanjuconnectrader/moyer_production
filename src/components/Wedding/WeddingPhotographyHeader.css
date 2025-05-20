@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&display=swap');
+
+/* Base Styles */
+.wedding-photography {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 400px;
+  margin-top: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  overflow: hidden;
+}
+
+.wedding-photography__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.wedding-photography__content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.wedding-photography__content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.wedding-photography__underline {
+  width: clamp(60px, 10vw, 100px);
+  height: 2px;
+  background: #fff;
+  margin: 0 auto;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .wedding-photography { height: 55vh; }
+}
+
+@media (max-width: 992px) {
+  .wedding-photography {
+    height: 50vh;
+    min-height: 350px;
+    background-attachment: scroll;
+  }
+  .wedding-photography__content h1 { letter-spacing: 1.2px; }
+}
+
+@media (max-width: 768px) {
+  .wedding-photography {
+    height: 45vh;
+    min-height: 300px;
+    margin-top: 80px;
+  }
+  .wedding-photography__content { padding: 0 20px; }
+  .wedding-photography__content h1 { margin-bottom: 14px; }
+}
+
+@media (max-width: 576px) {
+  .wedding-photography { height: 40vh; min-height: 250px; }
+  .wedding-photography__content h1 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    letter-spacing: 1px;
+  }
+  .wedding-photography__underline { height: 1.5px; }
+}
+
+@media (max-width: 400px) {
+  .wedding-photography { height: 35vh; min-height: 220px; }
+  .wedding-photography__content h1 { margin-bottom: 12px; }
+}

@@ -1,0 +1,151 @@
+/* src/components/CoastalKitchen/CoastalKitchen.css */
+:root {
+  --black: #000;
+  --white: #fff;
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: 16px;
+}
+
+/* ─── wrapper ─── */
+.CoastalKitchen {
+  background: var(--black);
+  min-height: 100vh;
+  width: 100%;
+  padding: 80px 40px;
+  margin-top: 50px;
+}
+
+/* ─── header ─── */
+.CoastalKitchen__header {
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: fadeIn 1s ease 0.3s forwards;
+}
+
+.CoastalKitchen__title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.CoastalKitchen__subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── masonry grid ─── */
+.CoastalKitchen__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: var(--gutter);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.CoastalKitchen__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter);
+}
+
+/* ─── gallery item ─── */
+.CoastalKitchen__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+  will-change: transform;
+}
+
+.CoastalKitchen__item.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* maintain aspect ratio */
+.CoastalKitchen__img-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 150%;
+}
+
+.CoastalKitchen__img-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.CoastalKitchen__img-wrap img.zoomed {
+  transform: scale(1.03);
+}
+
+/* overlay */
+.CoastalKitchen__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.CoastalKitchen__overlay.visible {
+  opacity: 1;
+}
+
+.CoastalKitchen__number {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+/* ─── fade-in animation ─── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── responsive tweaks ─── */
+@media (max-width: 1440px) {
+  .CoastalKitchen { padding: 60px 30px; }
+}
+
+@media (max-width: 1024px) {
+  .CoastalKitchen { padding: 60px 20px; }
+  .CoastalKitchen__header { margin-bottom: 40px; }
+  :root { --gutter: 12px; }
+}
+
+@media (max-width: 768px) {
+  .CoastalKitchen { padding: 40px 15px; }
+  .CoastalKitchen__title { letter-spacing: 4px; }
+  .CoastalKitchen__overlay { padding: 15px; }
+}
+
+@media (max-width: 480px) {
+  .CoastalKitchen { padding: 30px 10px; }
+  :root { --gutter: 8px; }
+  .CoastalKitchen__title { letter-spacing: 2px; }
+  .CoastalKitchen__subtitle { letter-spacing: 1px; }
+}

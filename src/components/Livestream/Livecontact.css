@@ -1,0 +1,164 @@
+/* src/components/Livecontact/Livecontact.css */
+/* ─── design tokens ────────────────────────────────────────── */
+:root {
+  --lc-bg: #000;
+  --lc-fg: #fff;
+  --lc-border: rgba(255, 255, 255, 0.2);
+  --lc-radius: 8px;
+  --lc-gap: 3rem;
+  --lc-btn-hover: rgba(255, 255, 255, 0.1);
+  --lc-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── section wrapper ──────────────────────────────────────── */
+.lc {
+  background: var(--lc-bg);
+  color: var(--lc-fg);
+  padding: clamp(6rem, 15vw, 10rem) 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lc::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.lc__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lc-gap);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── headline text ────────────────────────────────────────── */
+.lc__headline {
+  max-width: 1100px;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.8));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 0 1rem;
+}
+
+/* ─── call-to-action button ───────────────────────────────── */
+.lc__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.25rem 3rem;
+  border: 1px solid var(--lc-border);
+  border-radius: var(--lc-radius);
+  font-size: clamp(1rem, 0.5vw + 0.9rem, 1.2rem);
+  font-weight: 500;
+  color: var(--lc-fg);
+  text-decoration: none;
+  transition: var(--lc-transition);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  gap: 0.75rem;
+}
+
+.lc__btn-hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--lc-btn-hover);
+  transform: translateY(100%);
+  transition: var(--lc-transition);
+  z-index: -1;
+}
+
+.lc__btn:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.lc__btn:hover .lc__btn-hover-effect {
+  transform: translateY(0);
+}
+
+.lc__btn:hover .lc__btn-icon {
+  transform: translateX(4px);
+}
+
+.lc__btn:active {
+  transform: translateY(-1px);
+}
+
+.lc__btn-icon {
+  transition: var(--lc-transition);
+}
+
+/* ─── contact info ────────────────────────────────────────── */
+.lc__contact-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-size: clamp(0.9rem, 0.5vw + 0.8rem, 1.1rem);
+  color: rgba(255, 255, 255, 0.7);
+  transition: var(--lc-transition);
+}
+
+.lc__contact-info:hover {
+  color: var(--lc-fg);
+}
+
+.lc__mail-icon {
+  font-size: 1.1em;
+}
+
+.lc__email {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+.lc__email::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: var(--lc-transition);
+}
+
+.lc__contact-info:hover .lc__email::after {
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .lc {
+    padding: clamp(4rem, 12vw, 6rem) 1.5rem;
+  }
+  
+  .lc__headline {
+    line-height: 1.5;
+  }
+  
+  .lc__btn {
+    padding: 1rem 2.5rem;
+  }
+}

@@ -1,0 +1,141 @@
+/* ---------- Design Tokens ---------- */
+:root {
+    --max-width: 1200px;
+    --section-padding: clamp(5rem, 8vw, 9rem);
+    --gap: clamp(3rem, 5vw, 6rem);
+    
+    --heading-size: clamp(2.5rem, 4vw, 3.5rem);
+    --text-size: clamp(1.1rem, 1.25vw, 1.25rem);
+    --line-height: 1.7;
+    
+    --primary-color: #222;
+    --secondary-color: #555;
+    --accent-color: #0066cc;
+    
+    --border-radius: 12px;
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  /* ---------- Container ---------- */
+  .owner-container {
+    background: #fff;
+    width: 100%;
+  }
+  
+  .owner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--section-padding) 2rem;
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 42%);
+    gap: var(--gap);
+    align-items: center;
+  }
+  
+  /* ---------- Text Column ---------- */
+  .owner__copy {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .owner__title {
+    font-size: var(--heading-size);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .owner__underline {
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    margin-bottom: 2.5rem;
+    border-radius: 2px;
+  }
+  
+  .owner__description {
+    font-size: var(--text-size);
+    line-height: var(--line-height);
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+  }
+  
+  /* ---------- Image Column ---------- */
+  .owner__media {
+    position: relative;
+    width: 100%;
+  }
+  
+  .owner__image-wrapper {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transform: translateZ(0);
+    aspect-ratio: 3/4;
+  }
+  
+  .owner__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+    transform-origin: center;
+  }
+  
+  .owner__image-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.03) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    z-index: 1;
+  }
+  
+  .owner__image-wrapper:hover .owner__image {
+    transform: scale(1.03);
+  }
+  
+  /* ---------- Responsive Breakpoints ---------- */
+  @media (max-width: 992px) {
+    .owner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .owner__copy {
+      order: 1;
+      text-align: center;
+      align-items: center;
+    }
+    
+    .owner__underline {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .owner__media {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .owner {
+      padding: 3.5rem 1.5rem;
+    }
+    
+    .owner__title {
+      margin-bottom: 1rem;
+    }
+    
+    .owner__underline {
+      margin-bottom: 1.5rem;
+    }
+  }

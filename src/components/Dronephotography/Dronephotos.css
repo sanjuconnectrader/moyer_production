@@ -1,0 +1,237 @@
+/* src/components/Dronephotos/Dronephotos.css */
+/* ───────────  Design tokens  ─────────── */
+:root {
+  --gap: 2rem;
+  --radius: 16px;
+  --border: 1px solid rgba(255, 255, 255, 0.1);
+  --bg-tile: rgba(20, 20, 20, 0.6);
+  --hover-scale: 1.03;
+  --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --overlay-bg: rgba(0, 0, 0, 0.9);
+}
+
+/* ───────────  Section wrapper  ─────────── */
+.dp {
+  background: #000;
+  padding: 6rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(50, 50, 50, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.dp__container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.dp__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: -0.03em;
+  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dp__subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* ───────────  Responsive grid - 3 columns  ─────────── */
+.dp__grid {
+  width: 100%;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+}
+
+@media (max-width: 1024px) {
+  .dp__grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+  }
+}
+
+@media (max-width: 640px) {
+  .dp__grid {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+  }
+}
+
+/* ───────────  Gallery item  ─────────── */
+.dp__item {
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-tile);
+  aspect-ratio: 4 / 3;
+  transition: var(--transition);
+  position: relative;
+
+  cursor: pointer;
+  will-change: transform;
+}
+
+.dp__item:hover {
+  transform: scale(var(--hover-scale));
+  box-shadow: var(--hover-shadow);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dp__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dp__item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.dp__item:hover .dp__item-overlay {
+  opacity: 1;
+}
+
+.dp__item-number {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.5);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ───────────  Lightbox  ─────────── */
+.dp__lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.dp__lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(10px);
+}
+
+.dp__lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  z-index: 2;
+}
+
+.dp__lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.dp__lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dp__lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dp__lightbox-close svg {
+  font-size: 1.5rem;
+}
+
+.dp__lightbox-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.dp__lightbox-prev,
+.dp__lightbox-next {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dp__lightbox-prev:hover,
+.dp__lightbox-next:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dp__lightbox-prev svg,
+.dp__lightbox-next svg {
+  font-size: 1.5rem;
+}
+
+.dp__lightbox-counter {
+  color: white;
+  font-size: 1rem;
+  min-width: 80px;
+  text-align: center;
+}
