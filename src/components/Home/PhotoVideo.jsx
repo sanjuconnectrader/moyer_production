@@ -6,7 +6,7 @@ const items = [
   { 
     label: 'Photos',  
     img: 'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/c5f6acf8-7862-42e6-935b-4a6e965e3f07/P1005365-Edit.jpg?format=1000w',  
-    link: '/photos',
+    link: '/photography',
     bgGradient: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%)'
   },
   { 
