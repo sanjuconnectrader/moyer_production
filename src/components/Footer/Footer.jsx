@@ -36,7 +36,7 @@ const Footer = () => (
             <li><Link to="/live-stream">Live Stream</Link></li>
             <li><Link to="/drone-photography">Drone Photography</Link></li>
             <li><Link to="/wedding-photography">Wedding Photography</Link></li>
-            <li><Link to="/headshot-photography">Headshot Photography</Link></li>
+            <li><Link to="/headshot">Headshot Photography</Link></li>
           </ul>
         </div>
 
