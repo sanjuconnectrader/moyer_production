@@ -148,20 +148,26 @@
   );
 }
 
-/* Responsive Design */
+/* Responsive Design - Tablet (768px - 1024px) */
 @media (max-width: 1024px) {
   .why__container {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
   }
   
   .why__media {
     min-height: 400px;
     max-width: 600px;
     margin: 0 auto;
+    order: -1;
   }
   
   .why__text {
+    text-align: center;
+  }
+  
+  .why__text p {
+    padding-left: 0;
     text-align: center;
   }
   
@@ -170,18 +176,24 @@
   }
   
   .why__btn {
-    margin: 0 auto;
+    margin: 1.5rem auto 0;
   }
 }
 
+/* Responsive Design - Mobile (480px - 767px) */
 @media (max-width: 768px) {
   :root {
-    --section-padding: 4rem 0;
+    --section-padding: 5rem 0;
+    --gap: 3rem;
+  }
+  
+  .why__container {
+    padding: 0 1.5rem;
   }
   
   .why__text p {
-    padding-left: 0;
     text-align: left;
+    font-size: 1.1rem;
   }
   
   .why__media {
@@ -189,13 +201,29 @@
   }
 }
 
+/* Responsive Design - Small Mobile (up to 479px) */
 @media (max-width: 480px) {
+  :root {
+    --section-padding: 4rem 0;
+  }
+  
   .why__container {
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
+    gap: 3rem;
+  }
+  
+  .why__text p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   .why__btn {
     width: 100%;
     justify-content: center;
+    padding: 1rem 1.5rem;
+  }
+  
+  .why__media {
+    min-height: 300px;
   }
 }
