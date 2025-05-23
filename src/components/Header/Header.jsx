@@ -3,13 +3,15 @@ import './Header.css';
 
 const Header = () => (
   <section className="hero">
-    {/* Full-bleed video background */}
+    {/* Full-bleed video background with preload="none" for better performance */}
     <video
       className="hero__video"
       autoPlay
       muted
       loop
       playsInline
+      preload="none"
+      poster="/video-poster.jpg" // Add a poster frame for faster initial load
     >
       <source src="/background-video.mp4" type="video/mp4" />
       Your browser does not support the video tag.
