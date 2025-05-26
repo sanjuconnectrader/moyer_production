@@ -10,6 +10,7 @@ import Whyus from '../components/Home/Whyus'
 import Productions from '../components/Home/Productions'
 import Review from '../components/Home/Review'
 import Footer from '../components/Footer/Footer'
+import Threeservice from '../components/Home/Threeservice'
 
 const Homepage = () => {
     return (
@@ -23,6 +24,7 @@ const Homepage = () => {
             <Whyus/>
             <Productions/>
             <Review/>
+            <Threeservice/>
             <Footer/>
             
         
