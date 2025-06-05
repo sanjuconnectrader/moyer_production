@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&display=swap');
+
+/* Base Styles */
+.pricing-header {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  margin-top: 90px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.underline {
+  width: clamp(60px, 10vw, 100px);
+  height: 2px;
+  background-color: white;
+  margin: 0 auto;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .pricing-header {
+    height: 55vh;
+  }
+}
+
+@media (max-width: 992px) {
+  .pricing-header {
+    height: 50vh;
+    min-height: 350px;
+    background-attachment: scroll;
+  }
+  
+  .content h1 {
+    letter-spacing: 1.2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-header {
+    height: 45vh;
+    min-height: 300px;
+    margin-top: 80px;
+  }
+  
+  .content {
+    padding: 0 20px;
+  }
+  
+  .content h1 {
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .pricing-header {
+    height: 40vh;
+    min-height: 250px;
+  }
+  
+  .content h1 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    letter-spacing: 1px;
+  }
+  
+  .underline {
+    height: 1.5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .pricing-header {
+    height: 35vh;
+    min-height: 220px;
+  }
+  
+  .content h1 {
+    margin-bottom: 12px;
+  }
+}

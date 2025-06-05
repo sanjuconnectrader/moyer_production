@@ -1,0 +1,162 @@
+/* Modern high-end UI styling for headshot details */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&display=swap');
+
+:root {
+  /* Color palette */
+  --pure-white: #ffffff;
+  --pure-black: #000000;
+  --soft-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  
+  /* Typography */
+  --serif-font: 'Roboto Condensed', sans-serif;
+  --sans-font: 'Roboto Condensed', sans-serif;
+  
+  /* Spacing */
+  --section-padding: 6rem 2rem;
+  --content-gap: 2.5rem;
+  --grid-gap: 2rem;
+  
+  /* Effects */
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --border-radius: 12px;
+  --image-scale: 1.03;
+}
+
+/* Base section styling */
+.headshot-details {
+  background: var(--pure-white);
+  color: var(--pure-black);
+  padding: var(--section-padding);
+  position: relative;
+}
+
+/* Container with max-width and centered content */
+.headshot-details__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content section with elegant typography */
+.headshot-details__content {
+  margin-bottom: var(--content-gap);
+}
+
+.headshot-details__paragraph {
+   font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--pure-black);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.headshot-details__paragraph:first-child {
+  font-family: var(--serif-font);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* Gallery grid with subtle interactions */
+.headshot-details__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--grid-gap);
+  width: 100%;
+}
+
+.headshot-details__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  will-change: transform;
+}
+
+.headshot-details__image-wrapper {
+  position: relative;
+  padding-top: 125%; /* 4:5 aspect ratio */
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.headshot-details__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+  transform-origin: center center;
+  box-shadow: var(--soft-shadow);
+}
+
+.headshot-details__item:hover .headshot-details__image {
+  transform: scale(var(--image-scale));
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 5rem 2rem;
+    --content-gap: 2rem;
+    --grid-gap: 1.5rem;
+  }
+  
+  .headshot-details__paragraph {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+  }
+  
+  .headshot-details__paragraph:first-child {
+    font-size: 1.1875rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 4rem 1.5rem;
+    --grid-gap: 1.25rem;
+  }
+  
+  .headshot-details__gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .headshot-details__paragraph {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .headshot-details__paragraph:first-child {
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 3rem 1rem;
+    --content-gap: 1.5rem;
+  }
+  
+  .headshot-details__gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .headshot-details__paragraph {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+  
+  .headshot-details__paragraph:first-child {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+}

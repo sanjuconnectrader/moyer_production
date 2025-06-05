@@ -1,0 +1,86 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&display=swap');
+
+/* CSS Custom Properties */
+:root {
+  --pure-white: #ffffff;
+  --pure-black: #000000;
+
+  --serif-font: 'Roboto Condensed', sans-serif;
+  --sans-font:  'Roboto Condensed', sans-serif;
+
+  --section-padding: 6rem 2rem;
+  --content-gap:   2.5rem;
+}
+
+/* Base Section */
+.live-stream-details {
+  background: var(--pure-white);
+  color: var(--pure-black);
+  padding: var(--section-padding);
+}
+
+/* Layout Container */
+.live-stream-details__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Centered Heading ── */
+.live-stream-details__heading {
+  font-family: var(--serif-font);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* Inner Content Block */
+.live-stream-details__content {
+  margin-bottom: var(--content-gap);
+}
+
+/* Paragraph Styles */
+.live-stream-details__paragraph {
+  font-family: var(--sans-font);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.live-stream-details__paragraph:first-child {
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 5rem 2rem;
+    --content-gap:   2rem;
+  }
+  .live-stream-details__paragraph { font-size: 1.0625rem; line-height: 1.75; }
+  .live-stream-details__paragraph:first-child { font-size: 1.1875rem; }
+}
+
+@media (max-width: 768px) {
+  :root { --section-padding: 4rem 1.5rem; }
+  .live-stream-details__heading { margin-bottom: 2rem; }
+  .live-stream-details__paragraph { font-size: 1rem; line-height: 1.7; }
+  .live-stream-details__paragraph:first-child { font-size: 1.125rem; }
+}
+
+@media (max-width: 480px) {
+  :root { --section-padding: 3rem 1rem; --content-gap: 1.5rem; }
+  .live-stream-details__paragraph { font-size: 0.9375rem; line-height: 1.65; }
+  .live-stream-details__paragraph:first-child { font-size: 1.0625rem; }
+}
