@@ -2,10 +2,10 @@ import React from 'react';
 import './Headshotdetails.css';
 
 const images = [
-  'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/ff43d20d-7e1c-4b31-9fc0-a8dfaaca32d9/BNI+Headshots+Jan+24-23.jpg?format=1000w',
-  'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/4e9c96c3-1f45-47c2-af6e-ad177d942c54/Cetera+Investors-10.jpg?format=1000w',
-  'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/08ea8434-7842-4526-a097-71bc73396378/The+Suite+Brand+Photos-13.jpg?format=1000w',
-  'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/1a8ea236-0f2f-4724-8dbc-3bb554a09ca7/Center+Collision+Headshots-18.jpg?format=1000w',
+  'hd1.jpg',
+  'hd2.jpg',
+  'hd3.jpg',
+  'hd4.jpg',
 ];
 
 const Headshotdetails = () => (

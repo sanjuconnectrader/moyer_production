@@ -159,7 +159,7 @@ const Whyus = () => {
         >
           <div className="why__image-container">
             <img
-              src="https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/5ec90b87-2100-4004-b649-589611217852/maxine-10.jpg?format=1000w"
+              src="./eye.jpg"
               alt="Client on set with our production team"
               loading="lazy"
               className="why__image"

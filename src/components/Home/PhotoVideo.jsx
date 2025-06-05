@@ -5,13 +5,13 @@ import './PhotoVideo.css';
 const items = [
   { 
     label: 'Photos',  
-    img: 'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/c5f6acf8-7862-42e6-935b-4a6e965e3f07/P1005365-Edit.jpg?format=1000w',  
+    img: './home-ph1.jpg',  
     link: '/photography',
     bgGradient: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%)'
   },
   { 
     label: 'Videos',  
-    img: 'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/3e8abb59-cda2-4ed4-9756-3802df1cdd5d/VSO+billboard+Photos-12.jpg?format=1000w',  
+    img: './home-ph2.jpg',  
     link: '/video',
     bgGradient: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%)'
   },

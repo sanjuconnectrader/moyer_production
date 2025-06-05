@@ -21,7 +21,7 @@ const YouTubeLazy = ({ url, title }) => {
 
   if (!id) {
     return (
-      <motion.div 
+      <motion.div
         className="pd__placeholder"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -58,7 +58,7 @@ const YouTubeLazy = ({ url, title }) => {
         aria-label="Close video"
       >
         <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
       </motion.button>
     </motion.div>
@@ -75,9 +75,9 @@ const YouTubeLazy = ({ url, title }) => {
       onHoverEnd={() => setHover(false)}
     >
       <div className="pd__thumb-image">
-        <motion.img 
-          src={thumb} 
-          alt={title} 
+        <motion.img
+          src={thumb}
+          alt={title}
           loading="lazy"
           initial={{ scale: 1 }}
           animate={{ scale: hover ? 1.05 : 1 }}
@@ -85,19 +85,19 @@ const YouTubeLazy = ({ url, title }) => {
         />
         <div className="pd__gradient-overlay" />
       </div>
-      
-      <motion.div 
+
+      <motion.div
         className="pd__play"
         initial={{ scale: 1 }}
         animate={{ scale: hover ? 1.1 : 1 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <svg viewBox="0 0 80 80" width="80" height="80" fill="none">
-          <motion.circle 
-            cx="40" 
-            cy="40" 
-            r="38" 
-            stroke="rgba(255,255,255,0.2)" 
+          <motion.circle
+            cx="40"
+            cy="40"
+            r="38"
+            stroke="rgba(255,255,255,0.2)"
             strokeWidth="1.5"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: hover ? 1 : 0 }}
@@ -136,9 +136,11 @@ const CONTENT = [
     heading: 'Photography – 1-4 production hours',
     copy: 'Professional photography that showcases your business. Headshots, product photos, working photos, before-and-after photos, event coverage, drone photography, and more!',
     images: [
-      'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/a627b5a3-677f-476a-9d1a-7d101e7708d4/Shaun+and+Shelby+Engagement+-35.jpg?format=1000w',
-      'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/bb0130d3-bd30-42e4-837b-b37335de8148/Forks+and+Corks+2023-74.jpg?format=1000w',
-      'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/3dbd8900-e73e-448d-9295-7e6f0de21a85/Sumner+Rainier.jpg?format=1000w',
+      './package1.jpg',
+      './package2.jpg',
+      './package3.jpg',
+
+
     ],
   },
 ];

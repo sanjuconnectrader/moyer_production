@@ -4,7 +4,7 @@ import './Productions.css';
 const services = [
   {
     title: 'Video Production',
-    img: 'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/b06f163d-1242-4401-91d7-76999f57a7b4/82514692_3103064559707008_162892707784556544_o.jpg?format=1000w',
+    img: './videoprod-home.jpg',
     text: `Our team blends cinematic storytelling with cutting-edge technology to produce
            videos that captivate and convert. We tailor every project to your brand
            voice, guaranteeing a cohesive look and feel across all platforms. From
@@ -20,7 +20,7 @@ const services = [
   },
   {
     title: 'Photography Production',
-    img: 'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/301e48de-adee-4095-a48b-a667f4ebc117/100V2612.jpg?format=1000w',
+    img: 'liveprod-home.jpg',
     text: `We craft images with meticulous attention to lighting, composition, and brand
            consistency, so every photo tells your story at a glance. Fully insured
            and FAA-certified for aerial work, we capture stunning drone perspectives

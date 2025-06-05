@@ -26,7 +26,7 @@ const Owner = () => (
       <figure className="owner__media">
         <div className="owner__image-wrapper">
           <img
-            src="https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/d8c0c1c9-b2ea-4cbf-81f6-a7fdd2e551a3/LukeMoyerPhotos.jpeg?format=2500w"
+            src="owner.jpeg"
             alt="Owner behind the camera"
             loading="lazy"
             className="owner__image"

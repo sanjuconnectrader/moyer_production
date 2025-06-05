@@ -5,12 +5,12 @@ import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import './Dronephotos.css';
 
 const IMAGES = [
-  'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/67f2a1e2-3cc3-4411-8146-6f954d8ff159/DJI_0081.jpg?format=1000w',
-  'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/0faccd5e-467d-4368-839a-af4e9a1a8479/DSC_8406.jpg?format=1000w',
-  'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/1987aa5c-8a2d-4bd9-919e-6f15657ef392/portfolio+3.JPG?format=1000w',
-  'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/b1d5f694-5238-4553-958d-08718d49fc94/1800+Water+Damage+Group+Photos+19+Oct-4.jpg?format=1000w',
-  'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/3dbd8900-e73e-448d-9295-7e6f0de21a85/Sumner+Rainier.jpg?format=1000w',
-  'https://images.squarespace-cdn.com/content/v1/61d5db7decffa01140e4de33/a6a37183-ac8e-463e-9605-a190071e6dde/Steilacoom+Ferry-6.jpg?format=2500w',
+ '',
+ '',
+ '',
+ '',
+ '',
+ '',
 ];
 
 const Dronephotos = () => {

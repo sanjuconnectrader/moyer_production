@@ -130,40 +130,41 @@ const YouTubeCard = ({ url, title, index }) => {
   );
 };
 
-const VIDEO_DATA = [
-  {
-    url: 'https://youtu.be/nyJTb5KE8gQ',
-  
-  },
-  {
-    url: 'https://youtu.be/iuETzejUY88',
-
-  },
-  {
-    url: 'https://youtu.be/9NI3KlJe4SU',
-   
-  },
-  {
-    url: 'https://youtu.be/9NI3KlJe4SU',
-  
-  },
-  {
-    url: 'https://youtu.be/8380RYxUCow',
-
-  },
-  {
-    url: 'https://youtu.be/7vWNWIfIfNE',
-
-  },
-];
-
 const VideoGallery = () => {
+  const [videos, setVideos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1500);
-    return () => clearTimeout(timer);
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/videos`);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch videos');
+        }
+        
+        const data = await response.json();
+        setVideos(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchVideos();
   }, []);
+
+  if (error) {
+    return (
+      <section className="vg">
+        <div className="vg__error">
+          Error loading videos: {error}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="vg">
@@ -199,10 +200,10 @@ const VideoGallery = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          {VIDEO_DATA.map((video, i) => (
+          {videos.map((video, i) => (
             <YouTubeCard 
-              key={i} 
-              url={video.url} 
+              key={video.id} 
+              url={video.videoUrl} 
               title={video.title}
               index={i}
             />
