@@ -6,7 +6,7 @@ const Owner = () => (
     <section className="owner">
       {/* Text Column */}
       <div className="owner__copy">
-        <h2 className="owner__title">Moyer Production's Co LLC</h2>
+        <h2 className="owner__title">Moyer Production Co LLC</h2>
         <div className="owner__underline"></div>
         
         <p className="owner__description">
@@ -18,7 +18,7 @@ const Owner = () => (
           color-grading workflows that make your visuals pop on every screen, from
           smartphones to cinema displays. Serving Bonney Lake and the greater
           Puget Sound region, I'm committed to building long-term partnerships
-          that help local brands stand out and grow.
+          that help local brands stand out .
         </p>
       </div>
 
